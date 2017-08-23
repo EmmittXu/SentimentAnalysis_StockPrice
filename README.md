@@ -5,7 +5,7 @@ A first layer NaiveBayes classifier (trained on Sentiment 140 dataset) to do sen
 We also implemented a streaming interface using Spark Streaming to do online stock price prediction.
 
 nb_train_test.py trains and tests the first NaiveBayes classifier(sentiment classifier).  
-sen_stock.py trains and tests the second NaiveBayes classifier(stock price classifier).
+sen_stock.py trains and tests the second NaiveBayes classifier(stock price classifier).  
 getTweets.py pulls tweets using Twitter API.  
 stream.py and tcp-server.py are the implementation of the online stock price prediction.  
 
