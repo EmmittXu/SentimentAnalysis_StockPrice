@@ -6,4 +6,4 @@ sentiment_analysis_DNN is a fully connected network with various optimization an
 I am still working on the CNN implementation. Training is expensive without GPU support.
 
 # Dependency:
-python2.7, jupyter notebook, numpy, pandas, tensorflow, matlibplot
+python2.7, tensorflow, numpy, pandas, scikit learn, matlibplot, jupyter notebook
