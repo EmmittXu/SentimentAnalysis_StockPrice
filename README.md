@@ -5,4 +5,4 @@ A first layer NaiveBayes classifier (trained on Sentiment 140 dataset) to do sen
 We also implemented a streaming interface using Spark Streaming to do online stock price prediction.
 
 # Recently built and trained a neural network to do sentiment classification.  
-Testing accuracy on 4000 test data is 75%, a boost compared to NaiveBayes classifier.
+See NeuralNet folder for details. Testing accuracy on 4000 test data is 75%, a boost compared to NaiveBayes classifier.
