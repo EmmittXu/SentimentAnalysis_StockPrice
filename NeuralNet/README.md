@@ -1,6 +1,6 @@
 # A Tensorflow implementation of neural network to do binary sentiment classification on Tweets.  
 
-Training data is http://help.sentiment140.com/for-students/  
+Training data is http://help.sentiment140.com/for-students/, each data is a labled tweets, positive/negative.  
 Used pretrained Google [word2vec](https://en.wikipedia.org/wiki/Word2vec) to do word embedding https://code.google.com/archive/p/word2vec/
 
 Build_vocabulary.ipynb loads training data and word2vec model, build vocabulary and word_index_mapping.  
