@@ -1,0 +1,28 @@
+<html>
+<head>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<style>
+body{
+  font-size: 15pt;
+  font-family: arial;
+}
+</style>
+
+<body>
+  <h1>Sentiment Analysis Using Neural Networks</h1><p>By Guowei Xu</p>
+  <p>Please enter a sentence to see its sentiment:</p>
+
+<form action={{url_for('get_sentence')}} method=['POST','GET']>
+<input type="text" name="sentence"></input>
+<input type="submit" name="botton" value="Insert" onChange='{this.form.submit();}'></input>
+</form>
+
+
+{{text_label}}
+
+
+  <p>Total number of sentence processed: {{n_sent}}</p>
+
+</body>
+</html>
