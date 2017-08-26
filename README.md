@@ -11,4 +11,5 @@ getTweets.py pulls tweets using Twitter API.
 stream.py and tcp-server.py are the implementation of the online stock price prediction.  
 
 # Recently built and trained a neural network to do sentiment classification.  
-See NeuralNet folder for details. Testing accuracy on 4000 test data is 76%, outperformed previous NaiveBayes classifier by 5%~10%.
+See NeuralNet folder for details. Testing accuracy on 4000 test data is 76%, outperformed previous NaiveBayes classifier by 5%~10%.  
+Visit a quick demo [here](https://www.youtube.com/watch?v=JS51p-aXDas&feature=youtu.be).
