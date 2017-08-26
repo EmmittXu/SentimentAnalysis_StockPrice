@@ -7,7 +7,7 @@ Used pretrained Google [word2vec](https://en.wikipedia.org/wiki/Word2vec) to do 
 
 Build_vocabulary.ipynb loads training data and word2vec model, build vocabulary and word_index_mapping.  
 sentiment_analysis_DNN is a fully connected network with various optimization and normalization algorithms.  
-prediction_interface.py loads the trained model and makes predictions on entered sentences by the user.  
+prediction_interface.py loads the trained model, prompts the user to enter sentences and make predictions.  
 I am still working on the CNN implementation. Training is expensive without GPU support. Code is fine, finding a powerful machine is a problem.
 
 # Dependency:
