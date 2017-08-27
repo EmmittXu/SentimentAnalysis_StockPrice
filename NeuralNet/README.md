@@ -1,5 +1,6 @@
 # A Tensorflow implementation of neural network to do binary sentiment classification on Tweets.  
-
+## To play with it  
+http://ec2-54-221-7-76.compute-1.amazonaws.com:8111/
 ## Watch a quick demo here  
 https://www.youtube.com/watch?v=JS51p-aXDas&feature=youtu.be
 
