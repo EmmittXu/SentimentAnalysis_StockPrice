@@ -7,22 +7,44 @@ body{
   font-size: 15pt;
   font-family: arial;
 }
+
+
 </style>
 
 <body>
-  <h1>Sentiment Analysis Using Neural Networks</h1><p>By Guowei Xu</p>
-  <p>Please enter a sentence to see its sentiment:</p>
+  <h1>Twitter Sentiment Analysis Using Neural Networks</h1>
+	<p>By Guowei Xu, gx2127@columbia.edu</p>
+  <p>Only classifies positive and negative sentiment, please avoid neutral and very short inputs</p>
+  <p>Total number of sentences processed: {{n_sent}}</p>
+
 
 <form action={{url_for('get_sentence')}} method=['POST','GET']>
-<input type="text" name="sentence"></input>
-<input type="submit" name="botton" value="Insert" onChange='{this.form.submit();}'></input>
+<textarea rows="4" cols="50" placeholder="Enter a sentence here..." name="sentence"></textarea>
+<p>Label your input below, I will use your data in training :)</p>  
+<select name="feedbacks" onChange='{this.form.submit();}'>
+    <option value ="">What do you think of your input?</option>
+    <option value="Positive">Positive/积极</option>
+    <option value= "Negative">Negative/消极</option>
+  </select>
+
 </form>
+<p>----------------------------------------------------------</p>
+*****INPUT              PREDICTION*****
+<p>----------------------------------------------------------</p>
+{% for item in text_label %}
+<td>{{item}}</td> <br />
+{% endfor %}
 
 
-{{text_label}}
+    <div style="position: relative">
+      <p style="position: fixed; bottom: 20; width:100%; text-align: center"> 
+		<a href ="https://github.com/EmmittXu/SentimentAnalysis_StockPrice/tree/master/NeuralNet">GitHub</a>
+	<a href ="https://www.youtube.com/watch?v=JS51p-aXDas&feature=youtu.be">YouTube</a>
+<a href ="http://v.youku.com/v_show/id_XMjk5MTE0MTgyOA==.html?spm=a2hzp.8244740.0.0">Youku</a>
+	
+	</p>
+    </div>
 
-
-  <p>Total number of sentence processed: {{n_sent}}</p>
 
 </body>
 </html>

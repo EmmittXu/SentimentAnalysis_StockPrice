@@ -1,7 +1,18 @@
-Auther: Guowei Xu
-August 26th, 2017
+#!/usr/bin/env python2.7
 
+"""
+Columbia's COMS W4111.001 Introduction to Databases
+Example Webserver
 
+To run locally:
+
+  python server.py
+
+Go to http://localhost:8111 in your browser.
+
+A debugger such as "pdb" may be helpful for debugging.
+Read about it online.
+"""
 import socket, sys
 
 import os
@@ -9,7 +20,6 @@ import cPickle
 import tensorflow as tf
 from flask import Flask, request, render_template
 from prediction_interface import vectorize, clean_str, build_hidden_layers
-
 
 print("initializing model...")
 x = cPickle.load(open("imdb-train-val-test.pickle", "rb"))
@@ -40,28 +50,50 @@ def predict(sentence):
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask(__name__, template_folder=tmpl_dir)
+res=[]
+num_corrects=0.0
+num_inputs=0.0
+pre_sentence=""
 
-i=0
 @app.route('/', methods=['GET','POST'])
 def get_sentence():
     tmp="Result"
-    global i
+    global num_inputs
     sentence = request.args.get('sentence')
-    if(sentence!=None):
-        probability=predict(sentence)
-        if (probability[0][0] > probability[0][1]):
-            label="Negative"
-        else:
-            label="Positive"
-    if(sentence!=None and label!=None):
-        tmp=sentence+": "+label
-        i+=1
-    return render_template('home.html', text_label=tmp, n_sent=i)
+    feedback = request.args.get('feedbacks')
+    global pre_sentence
+    if(feedback=="" or sentence=="" or sentence==pre_sentence):
+        return render_template('home.html', text_label=res[::-1])
+    pre_sentence=sentence
+    label=""
+    probability=predict(sentence)
+    if (probability[0][0] > probability[0][1]):
+        label="Negative"
+    else:
+        label="Positive"
+
+    if (label == feedback):
+        global num_corrects
+        num_corrects += 1.0
+    tmp=sentence+"   "+label
+    num_inputs+=1.0
+    accuracy=num_corrects/num_inputs
+    res.append(tmp)
+    history = open('history.txt', 'a')
+    history.write("%s\n" % (tmp+" "+str(feedback)+" "+str(accuracy)))
+    return render_template('home.html', text_label=res[::-1], n_sent=num_inputs)
 
 def run(debug=True, threaded=True, host='0.0.0.0', port=8111):
     HOST, PORT = host, port
     print "running on %s:%d" % (HOST, PORT)
-    app.run(host=HOST, port=PORT, debug=True, threaded=threaded)
+    app.run(host=HOST, port=PORT, debug=True, threaded=threaded, use_reloader=False)
 
 if __name__ == "__main__":
     run()
+
+
+
+
+
+
+
