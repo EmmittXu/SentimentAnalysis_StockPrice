@@ -1,17 +1,9 @@
 #!/usr/bin/env python2.7
 
-"""
-Columbia's COMS W4111.001 Introduction to Databases
-Example Webserver
+Auther: Guowei Xu
+August 27th, 2017
 
-To run locally:
 
-  python server.py
-
-Go to http://localhost:8111 in your browser.
-
-A debugger such as "pdb" may be helpful for debugging.
-Read about it online.
 """
 import socket, sys
 
