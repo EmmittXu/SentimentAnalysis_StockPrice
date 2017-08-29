@@ -7,8 +7,9 @@ https://www.youtube.com/watch?v=JS51p-aXDas&feature=youtu.be
 Training data is http://help.sentiment140.com/for-students/, each data is a labled tweets, positive/negative.  
 Used pretrained Google [word2vec](https://en.wikipedia.org/wiki/Word2vec) to do word embedding https://code.google.com/archive/p/word2vec/
 
-Build_vocabulary.ipynb loads training data and word2vec model, build vocabulary and word_index_mapping.  
-sentiment_analysis_DNN is a fully connected network with various optimization and normalization algorithms.  
+Build_vocabulary.ipynb loads training data and word2vec model, builds vocabulary and word_index_mapping.  
+sentiment_analysis_DNN_train.ipynb is a fully connected network with various optimization and normalization algorithms. This is where I built and trained the neural network.  
+server.py is a Flask web application to allow people play with this model. You enter a sentence and the model will judge its emotion.  
 prediction_interface.py loads the trained model, prompts the user to enter sentences and make predictions.  
 I am still working on the CNN implementation. Training is expensive without GPU support. Code is fine, finding a powerful machine is a problem.
 
